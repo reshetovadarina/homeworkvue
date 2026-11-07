@@ -9,6 +9,11 @@ const user = ref({
   avatarAlt: 'Фото',
   isSpicy: false
 })
+
+const clickedFood = ref('')
+const showFoodOnScreen = (foodName) => {
+  clickedFood.value = foodName
+}
 </script>
 
 <template>
@@ -20,5 +25,9 @@ const user = ref({
     <div :class="{ 'is-hot': user.isSpicy }">
     <p>Улюблена страва: {{ user.favoriteFood }}</p>
   </div>
+   <button @click="showFoodOnScreen(user.favoriteFood)">
+      Показати страву на екрані
+    </button>
+    <p v-if="clickedFood">Ви обрали: {{ clickedFood }}</p>
   </div>
 </template>
