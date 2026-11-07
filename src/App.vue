@@ -6,7 +6,8 @@ const user = ref({
   city: 'Хмельницький',
   favoriteFood: 'Лазання',
     avatarUrl: 'https://gumoreska.in.ua/wp-content/uploads/2023/11/privit-kartinki-i-listivki-3.jpg',
-  avatarAlt: 'Фото'
+  avatarAlt: 'Фото',
+  isSpicy: false
 })
 </script>
 
@@ -16,6 +17,8 @@ const user = ref({
     <img :src="user.avatarUrl" :alt="user.avatarAlt" />
     <p>Ім'я: {{ user.name }}</p>
     <p>Місто: {{ user.city }}</p>
+    <div :class="{ 'is-hot': user.isSpicy }">
     <p>Улюблена страва: {{ user.favoriteFood }}</p>
+  </div>
   </div>
 </template>
